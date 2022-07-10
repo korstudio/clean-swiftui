@@ -27,8 +27,14 @@
 		<dict>
 			<key>Default</key>
 			<string>___VARIABLE_sceneName:identifier___View</string>
+			<key>Description</key>
+			<string>The view name</string>
 			<key>Identifier</key>
 			<string>viewName</string>
+			<key>Name</key>
+			<string>View Name:</string>
+			<key>Required</key>
+			<true/>
 			<key>Type</key>
 			<string>static</string>
 		</dict>
@@ -36,7 +42,7 @@
 			<key>Default</key>
 			<string>___VARIABLE_sceneName:identifier___ViewState</string>
 			<key>Description</key>
-			<string>The view stage name</string>
+			<string>The view state name</string>
 			<key>Identifier</key>
 			<string>viewstateName</string>
 			<key>Name</key>
@@ -80,7 +86,7 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>SortOrder</key>
-	<string>6</string>
+	<string>4</string>
 	<key>Summary</key>
 	<string>This generates a new configurator to set up your scene</string>
 </dict>

@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ___VARIABLE_sceneName__ViewState: ObservableObject, Equatable {
+struct ___VARIABLE_sceneName___ViewState: ObservableObject, Equatable {
 //    @Published var userData: UserData()
 //    @Published var router: ViewRouter()
 //    @Published var system: ViewSystem()
 }
 
 #if DEBUG
-struct ___VARIABLE_sceneName__View_Previews: PreviewProvider {
+struct ___VARIABLE_sceneName___View_Previews: PreviewProvider {
     @State static var isDisplayed = true
 
     static var previews: some View {

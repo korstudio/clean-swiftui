@@ -8,14 +8,13 @@
 
 import SwiftUI
 
-struct ___VARIABLE_sceneName__View: View {
-
+struct ___VARIABLE_sceneName___View: View {
     @EnvironmentObject var viewState: ___VARIABLE_sceneName__ViewState()
     @Environment(\.interactor) var interactor: InteractorContainer
 
     var body: some View {
         // start here
-        
+
         // call interactor here
         .onAppear {
             // self.interactor...
@@ -24,7 +23,7 @@ struct ___VARIABLE_sceneName__View: View {
 }
 
 #if DEBUG
-struct ___VARIABLE_sceneName__View_Previews: PreviewProvider {
+struct ___VARIABLE_sceneName___View_Previews: PreviewProvider {
     @State static var isDisplayed = true
 
     static var previews: some View {
