@@ -5,14 +5,14 @@
 	<key>DefaultCompletionName</key>
 	<string>MyScene</string>
 	<key>Description</key>
-	<string>This generates a new configurator to set up your scene</string>
+	<string>Clean Swift template for Swift UI. Based on github.com/strzempa/CleanSwiftWithSwiftUI</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
 	<array>
 		<dict>
 			<key>Description</key>
-			<string>The name of the SwiftUI scene to create</string>
+			<string>The name of the scene to create</string>
 			<key>Identifier</key>
 			<string>sceneName</string>
 			<key>Name</key>
@@ -26,13 +26,21 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___View</string>
-			<key>Description</key>
-			<string>The view name</string>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
 			<key>Identifier</key>
-			<string>viewName</string>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Configurator</string>
+			<key>Description</key>
+			<string>The configurator name</string>
+			<key>Identifier</key>
+			<string>configuratorName</string>
 			<key>Name</key>
-			<string>View Name:</string>
+			<string>Configurator Name</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -40,15 +48,9 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___ViewState</string>
-			<key>Description</key>
-			<string>The view state name</string>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
 			<key>Identifier</key>
-			<string>viewstateName</string>
-			<key>Name</key>
-			<string>ViewState Name:</string>
-			<key>Required</key>
-			<true/>
+			<string>productName</string>
 			<key>Type</key>
 			<string>static</string>
 		</dict>
@@ -68,13 +70,109 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Repository</string>
-			<key>Description</key>
-			<string>The repository name</string>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
 			<key>Identifier</key>
-			<string>repositoryName</string>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___View</string>
+			<key>Description</key>
+			<string>The view name</string>
+			<key>Identifier</key>
+			<string>viewName</string>
 			<key>Name</key>
-			<string>Repository Name:</string>
+			<string>View Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___ViewModel</string>
+			<key>Description</key>
+			<string>The view model name</string>
+			<key>Identifier</key>
+			<string>viewModelName</string>
+			<key>Name</key>
+			<string>View Model Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___ViewController</string>
+			<key>Description</key>
+			<string>The view controller name</string>
+			<key>Identifier</key>
+			<string>viewControllerName</string>
+			<key>Name</key>
+			<string>View Controller Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Router</string>
+			<key>Description</key>
+			<string>The router name</string>
+			<key>Identifier</key>
+			<string>routerName</string>
+			<key>Name</key>
+			<string>Router Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Presenter</string>
+			<key>Description</key>
+			<string>The presenter name</string>
+			<key>Identifier</key>
+			<string>presenterName</string>
+			<key>Name</key>
+			<string>Presenter Name:</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -86,7 +184,7 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>SortOrder</key>
-	<string>4</string>
+	<string>6</string>
 	<key>Summary</key>
 	<string>This generates a new configurator to set up your scene</string>
 </dict>
