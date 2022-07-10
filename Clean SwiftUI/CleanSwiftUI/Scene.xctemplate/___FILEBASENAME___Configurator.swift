@@ -2,7 +2,7 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created at ___DATE___, ___YEAR___
+//  Created at ___DATE___
 //
 
 import Foundation
@@ -13,9 +13,8 @@ protocol ___VARIABLE_sceneName___Configurator {
 }
 
 final class Default___VARIABLE_sceneName___Configurator: ___VARIABLE_sceneName___Configurator {
-    var viewModel: ___VARIABLE_sceneName___ViewModel?
     func configured(with viewModel: ___VARIABLE_sceneName___ViewModel) -> ___VARIABLE_sceneName___ViewController {
-        self.viewModel = viewModel
+        var viewModel = viewModel
 
         let viewController = ___VARIABLE_sceneName___ViewController(rootView: ___VARIABLE_sceneName___View(viewModel: viewModel))
         let interactor = ___VARIABLE_sceneName___Interactor()

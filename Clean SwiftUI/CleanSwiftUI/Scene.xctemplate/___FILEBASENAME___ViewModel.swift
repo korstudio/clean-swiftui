@@ -2,7 +2,7 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created at ___DATE___, ___YEAR___
+//  Created at ___DATE___
 //
 
 import SwiftUI

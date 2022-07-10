@@ -26,7 +26,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
@@ -48,7 +48,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
@@ -70,7 +70,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
@@ -92,7 +92,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
@@ -114,7 +114,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
@@ -136,7 +136,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
@@ -158,7 +158,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Scene</string>
+			<string>___VARIABLE_sceneName:identifier___</string>
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Type</key>
