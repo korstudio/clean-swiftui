@@ -34,9 +34,9 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Configurator</string>
+			<string>___VARIABLE_sceneName:identifier___Scene</string>
 			<key>Description</key>
-			<string>The configurator name</string>
+			<string>The scene configurator name</string>
 			<key>Identifier</key>
 			<string>configuratorName</string>
 			<key>Name</key>
@@ -100,7 +100,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___ViewModel</string>
+			<string>___VARIABLE_sceneName:identifier___Model</string>
 			<key>Description</key>
 			<string>The view model name</string>
 			<key>Identifier</key>
@@ -122,13 +122,13 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___ViewController</string>
+			<string>___VARIABLE_sceneName:identifier___ViewBuilder</string>
 			<key>Description</key>
-			<string>The view controller name</string>
+			<string>The view builder (factory) name</string>
 			<key>Identifier</key>
-			<string>viewControllerName</string>
+			<string>viewBuilderName</string>
 			<key>Name</key>
-			<string>View Controller Name:</string>
+			<string>View Builder Name:</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -144,35 +144,13 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Router</string>
+			<string>___VARIABLE_sceneName:identifier___Navigator</string>
 			<key>Description</key>
-			<string>The router name</string>
+			<string>The navigation builder name</string>
 			<key>Identifier</key>
-			<string>routerName</string>
+			<string>navigatorName</string>
 			<key>Name</key>
-			<string>Router Name:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___</string>
-			<key>Identifier</key>
-			<string>productName</string>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Presenter</string>
-			<key>Description</key>
-			<string>The presenter name</string>
-			<key>Identifier</key>
-			<string>presenterName</string>
-			<key>Name</key>
-			<string>Presenter Name:</string>
+			<string>Navigator Name:</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>

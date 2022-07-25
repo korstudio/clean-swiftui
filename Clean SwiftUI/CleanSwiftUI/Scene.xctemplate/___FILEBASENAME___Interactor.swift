@@ -2,16 +2,14 @@
 //  ___FILENAME___
 //  ___PROJECTNAME___
 //
-//  Created at ___DATE___
+//  Created by ___FULLUSERNAME___ on ___DATE___.
 //
 
 import Foundation
 import SwiftUI
 
-protocol ___VARIABLE_sceneName___InteractorLogic {}
+protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {}
 
-final class ___VARIABLE_sceneName___Interactor {
-    var presenter: ___VARIABLE_sceneName___PresenterLogic?
+final class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
+    var output: ___VARIABLE_sceneName___DisplayLogic?
 }
-
-extension ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___InteractorLogic {}
