@@ -21,7 +21,7 @@ final class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___Business
 
     func doSomething(request: ___VARIABLE_sceneName___.Request) {
         after(2) {
-            output?.doSomething(response: .init())
+            self.output?.displaySomething(response: .init())
         }
     }
 }

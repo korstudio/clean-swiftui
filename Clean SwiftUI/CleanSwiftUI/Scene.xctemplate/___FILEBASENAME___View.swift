@@ -18,24 +18,25 @@ struct ___VARIABLE_sceneName___View: View {
     @ObservedObject var viewModel: ___VARIABLE_sceneName___.ViewModel
 
     //Next view's viewModel and viewSystem hosting here
-    /*
-    @State var nextViewModel: Next.ViewModel = .init()
-    @State var nextViewSystem: SystemViewBasedModel = .init(.init("NAVBAR_TITLE", isModal: MODAL_VIEW?, shadow: NEED_SHADOW_UNDER_NAV?, isHidden: IS_NAVII_HIDDEN?))
-    */
+    
+    @State var nextViewModel: ___VARIABLE_sceneName___.ViewModel = .init()
+    @State var nextViewSystem: SystemViewBasedModel = .init(.init("NAVBAR_TITLE", isModal: false /*MODAL_VIEW?*/, shadow: true /*NEED_SHADOW_UNDER_NAV?*/, isHidden: false /*IS_NAVII_HIDDEN?*/))
+    
     @State private var router: String?
-    @State private var cancellable = [AnyCancellable]()
-    var interactor: ___VARIABLE_sceneName___BusinessLogic?
-    var navigator: ___VARIABLE_sceneName___NavigationLogic?
+    @State private var cancellable: [AnyCancellable] = [AnyCancellable]()
+    @State private var disableButton: Bool = true
+    @State private var interactor: ___VARIABLE_sceneName___BusinessLogic?
+    @State private var navigator: ___VARIABLE_sceneName___NavigationLogic?
 
     @State private var nextViewRoutingID: String = "nextViewRoutingID"
     var body: some View {
         // Use BaseNavigationView on the rootView
-        BaseView(navbar) {
+        BaseView(viewSystem) {
             ScrollView {
                 VStack(spacing: 20) {
                     // Contents view here
-                    Text("___VARIABLE_sceneName___View")
-                        .body(.primaryMain)  
+                    Text("Welcome ___VARIABLE_sceneName___View")
+                        .headline1Typo(.primaryDark) 
                     Text("___VARIABLE_sceneName___View Link")
                         .link {
                             /*
@@ -43,16 +44,16 @@ struct ___VARIABLE_sceneName___View: View {
                             router = nextViewRoutingID
                             */
                         }       
-                    ViewFactory.___VARIABLE_sceneName___Text.InputFields(model: $viewModel.textbox)
+                    ___VARIABLE_sceneName___.Text.InputFields(model: $viewModel.textbox)
                     Spacer()
 
                     // Button and how to show hud
                     // 1: Button Title
                     // 2: enable/disable button 
                     // 3: turn button to show loading inside
-                    PrimaryButton("BUTTON_TITLE", disabled: $disabled_button, loading: viewSystem.$viewState.isProgressing) {
-                            // do something here
-                            // interactor?.something(request: .init())
+                    PrimaryButton("BUTTON_TITLE", disabled: $disableButton, loading: viewSystem.$viewState.isProgressing) {
+                        // do something here
+                        interactor?.doSomething(request: .init())
                     }
                 }
             }
@@ -61,7 +62,7 @@ struct ___VARIABLE_sceneName___View: View {
             Group {
                 Router(name: nextViewRoutingID, 
                     binding: $router) {
-                    NextView(viewSystem: nextViewSystem,
+                    ___VARIABLE_sceneName___View(viewSystem: nextViewSystem,
                             viewModel: nextViewModel)
                 }.build()
             }
@@ -101,13 +102,18 @@ struct ___VARIABLE_sceneName___View: View {
         NavButton(Icon.cross.image)
     }
 
+    private var rightButton2: NavButton {
+        NavButton(Icon.alarmClock.image)
+    }
+
     private func addObservers() {
         NotificationCenter.default.publisher(for: .rightItemAction)
             .sink { notification in
                 if let obj = notification.object as? NavButton {
                     switch obj {
                     case rightButton:
-                        isPresenting.toggle()
+                        // isPresenting.toggle()
+                        ()
                     case rightButton2:
                         //do something
                         ()
@@ -118,7 +124,7 @@ struct ___VARIABLE_sceneName___View: View {
             }
             .store(in: &cancellable)
 
-        viewModel.$textbox
+        viewModel.textbox.$text
             .filter { $0.isNotEmpty }
             .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .sink { val in
@@ -139,11 +145,12 @@ extension ___VARIABLE_sceneName___View: ___VARIABLE_sceneName___DisplayLogic {
 struct ___VARIABLE_sceneName___View_Previews: PreviewProvider {
     static var previews: some View {
        Group{
-            ___VARIABLE_sceneName___View(viewSystem: SystemViewBasedModel.Mock_Nav, 
-            viewModel: .init())
-                .sheet(.constant(true)) {
-                    ___VARIABLE_sceneName___View(viewSystem: SystemViewBasedModel.Mock_Nav, viewModel: .init())
-                }
-       }
+            ___VARIABLE_sceneName___View(viewSystem: SystemViewBasedModel.Mock_Nav,
+                            viewModel: .init())
+            .sheet(isPresented: .constant(true)){
+                ___VARIABLE_sceneName___View(viewSystem: SystemViewBasedModel.Mock_Nav,
+                                viewModel: .init())
+            }
+        }
     }
 }
