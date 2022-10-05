@@ -9,7 +9,17 @@ import Foundation
 import SwiftUI
 
 enum ___VARIABLE_sceneName___ {
-    class ViewModel: ObservableObject {}
+    struct Request {
+        
+    }
+    struct Response {
+        var error: Error?
+    }
+
+    class ViewModel: ObservableObject {
+        @Published var textbox: FlyingTextboxViewModel = .init(title: "Just for show", text: "", placeholder: "Say Something...", isPassword: true, autoFocus: true)
+    }
+
 }
 
 extension ___VARIABLE_sceneName___ {

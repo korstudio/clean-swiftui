@@ -7,35 +7,143 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-protocol ___VARIABLE_sceneName___DisplayLogic {}
+protocol ___VARIABLE_sceneName___DisplayLogic {
+    func displaySomething(response: ___VARIABLE_sceneName___.ViewModel)
+}
 
 struct ___VARIABLE_sceneName___View: View {
-    @EnvironmentObject var popupAction: PopupActions
-
-    @ObservedObject var navbar: NavbarSystem
+    @ObservedObject var viewSystem: SystemViewBasedModel
     @ObservedObject var viewModel: ___VARIABLE_sceneName___.ViewModel
 
+    //Next view's viewModel and viewSystem hosting here
+    /*
+    @State var nextViewModel: Next.ViewModel = .init()
+    @State var nextViewSystem: SystemViewBasedModel = .init(.init("NAVBAR_TITLE", isModal: MODAL_VIEW?, shadow: NEED_SHADOW_UNDER_NAV?, isHidden: IS_NAVII_HIDDEN?))
+    */
+    @State private var router: String?
+    @State private var cancellable = [AnyCancellable]()
     var interactor: ___VARIABLE_sceneName___BusinessLogic?
     var navigator: ___VARIABLE_sceneName___NavigationLogic?
 
+    @State private var nextViewRoutingID: String = "nextViewRoutingID"
     var body: some View {
+        // Use BaseNavigationView on the rootView
         BaseView(navbar) {
-            VStack {
-                //
+            ScrollView {
+                VStack(spacing: 20) {
+                    // Contents view here
+                    Text("___VARIABLE_sceneName___View")
+                        .body(.primaryMain)  
+                    Text("___VARIABLE_sceneName___View Link")
+                        .link {
+                            /*
+                            // navigate example
+                            router = nextViewRoutingID
+                            */
+                        }       
+                    ViewFactory.___VARIABLE_sceneName___Text.InputFields(model: $viewModel.textbox)
+                    Spacer()
+
+                    // Button and how to show hud
+                    // 1: Button Title
+                    // 2: enable/disable button 
+                    // 3: turn button to show loading inside
+                    PrimaryButton("BUTTON_TITLE", disabled: $disabled_button, loading: viewSystem.$viewState.isProgressing) {
+                            // do something here
+                            // interactor?.something(request: .init())
+                    }
+                }
+            }
+            .edgesIgnoringSafeArea(.all)
+            //Routing view here
+            Group {
+                Router(name: nextViewRoutingID, 
+                    binding: $router) {
+                    NextView(viewSystem: nextViewSystem,
+                            viewModel: nextViewModel)
+                }.build()
             }
         }
+        /*
+        /// Tosting view here
+        .toast(toastModel)  
+        /// Modal half screen here          
+        .presentModal($modalTest)
+        */
         .onAppear {
-            popupAction.isPresented = false
+            // NavButton on the right of the navigationBar
+            if (viewSystem.naviiBar.rightItems?.count ?? 0) < 1 {
+                viewSystem.naviiBar.rightItems?.append(rightButton)
+            }
+
+
+            addObservers()
+            self.interactor = ___VARIABLE_sceneName___Interactor(output: self)
+
+            after(2) {
+                viewModel.textbox.focus()
+            }
+            /*
+            viewSystem.viewState.isLoading = true
+            after(3) {
+                viewModel.viewState.isLoading.toggle()
+            }
+            mainAsync{}
+            mainAnimate(.easeIn) {}
+            mainAnimate(.easeIn, after: 3) {}
+            */      
         }
+    }
+
+    private var rightButton: NavButton {
+        NavButton(Icon.cross.image)
+    }
+
+    private func addObservers() {
+        NotificationCenter.default.publisher(for: .rightItemAction)
+            .sink { notification in
+                if let obj = notification.object as? NavButton {
+                    switch obj {
+                    case rightButton:
+                        isPresenting.toggle()
+                    case rightButton2:
+                        //do something
+                        ()
+                    default:
+                        ()
+                    }
+                }
+            }
+            .store(in: &cancellable)
+
+        viewModel.$textbox
+            .filter { $0.isNotEmpty }
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .sink { val in
+                mainAnimate {
+                    viewSystem.naviiBar.title = val
+                }
+            }
+            .store(in: &cancellable)
     }
 }
 
-extension ___VARIABLE_sceneName___View: ___VARIABLE_sceneName___DisplayLogic {}
+extension ___VARIABLE_sceneName___View: ___VARIABLE_sceneName___DisplayLogic {
+    func displaySomething(response: ___VARIABLE_sceneName___.ViewModel) {
+        // print("\(viewModel.name)
+    }
+}
 
 struct ___VARIABLE_sceneName___View_Previews: PreviewProvider {
     static var previews: some View {
-        let popupAction = PopupActions()
-        ___VARIABLE_sceneName___Scene(viewModel: .init()).view.environmentObject(popupAction)
+       Group{
+            ___VARIABLE_sceneName___View(viewSystem: SystemViewBasedModel.Mock_Nav, 
+            viewModel: .init())
+                .sheet(.constant(true)) {
+                    ___VARIABLE_sceneName___View(viewSystem: SystemViewBasedModel.Mock_Nav, viewModel: .init())
+                }
+       }
     }
 }
